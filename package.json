@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "inquirer": "^8.2.4",
     "mysql2": "^3.9.2",

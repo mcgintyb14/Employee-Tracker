@@ -2,18 +2,13 @@ const mysql = require('mysql2');
 const inquirer = require('inquirer');
 require('dotenv').config();
 
-const express = require('express');
-const app = express();
-
-const PORT = 3001;
-
 
 // Create a connection to the MySQL database
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: process.env.DB_USER,
+    user: 'root',
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
+    database: 'employee_db'
 });
 
 // Connect to the database
@@ -126,14 +121,69 @@ function addDepartment() {
   });
 }
 
-app.listen(PORT, () =>
-  console.log(`Example app listening at http://localhost:${PORT}`)
-);
-
 // implement functions to add roles, employees, and update employee roles
 
-// Handle adding a role, adding an employee, updating an employee role
+function addRole() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter the name of the role:'
+        }
+    ]).then(answer => {
+        // Execute SQL query to add department
+        connection.query('INSERT INTO role SET ?', { name: answer.name }, (err, results) => {
+          if (err) throw err;
+          console.log('Role added successfully.');
+          startApp(); // Go back to main menu
+        });
+      });
+}
 
-// call the startApp function to begin the application
+function addEmployee() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter the name of the new employee:'
+        }
+    ]).then(answer => {
+        // Execute SQL query to add department
+        connection.query('INSERT INTO employee SET ?', { name: answer.name }, (err, results) => {
+          if (err) throw err;
+          console.log('Employee added successfully.');
+          startApp(); // Go back to main menu
+        });
+      });
+}
+
+function updateEmployeeRole() {
+    // Logic to prompt the user for the employee and their new role
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: 'Enter the ID of the employee you want to update:'
+        },
+        {
+            type: 'input',
+            name: 'roleId',
+            message: 'Enter the ID of the new role for the employee:'
+        }
+    ]).then(answer => {
+        // Execute SQL query to update employee role
+        connection.query(
+            'UPDATE employee SET role_id = ? WHERE id = ?',
+            [answer.roleId, answer.employeeId],
+            (err, results) => {
+                if (err) throw err;
+                console.log('Employee role updated successfully.');
+                startApp(); // Go back to main menu
+            }
+        );
+    });
+}
+
+// Handle adding a role, adding an employee, updating an employee role
 
 startApp();

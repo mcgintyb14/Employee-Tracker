@@ -18,12 +18,14 @@ INSERT INTO role (title, salary, department_id)
            ('HR Lead', 75000, 5);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-    VALUES  ('Brendan', 'McGinty', 5, 2),
-            ('Tom', 'Riddle', 6, NULL),
-            ('Barry', 'Jones', 5, 2),
-            ('Jessica', 'Thomas', 9, 5),
-            ('Elena', 'Hollister', 10, NULL),
-            ('Alex', 'Smith', 9, 5),
-            ('Timmy', 'Hogan', 3, 8),
-            ('Laura', 'Adams', 4, NULL);
+    VALUES  
+           ('Tom', 'Riddle', 6, NULL),      -- No manager
+           ('Brendan', 'McGinty', 5, 1),    -- Manager: Tom Riddle (id=2) 
+           ('Barry', 'Jones', 5, 1),       -- Manager: Tom Riddle (id=2)
+           ('Elena', 'Hollister', 10, NULL),
+            ('Jessica', 'Thomas', 9, 4),  -- No manager
+           ('Alex', 'Smith', 9, 4),   
+           ('Laura', 'Adams', 4, NULL),      -- Manager: Elena Hollister (id=5)
+           ('Timmy', 'Hogan', 3, 7);    -- Manager: Laura Adams (id=8)
+           
 
