@@ -1,12 +1,19 @@
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
+require('dotenv').config();
+
+const express = require('express');
+const app = express();
+
+const PORT = 3001;
+
 
 // Create a connection to the MySQL database
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: 'employee_db'
+    host: 'localhost',
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 // Connect to the database
@@ -119,8 +126,14 @@ function addDepartment() {
   });
 }
 
+app.listen(PORT, () =>
+  console.log(`Example app listening at http://localhost:${PORT}`)
+);
+
 // implement functions to add roles, employees, and update employee roles
 
 // Handle adding a role, adding an employee, updating an employee role
 
 // call the startApp function to begin the application
+
+startApp();
