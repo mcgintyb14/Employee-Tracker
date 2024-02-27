@@ -4,9 +4,9 @@ const inquirer = require('inquirer');
 // Create a connection to the MySQL database
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'your_mysql_username',
-  password: 'your_mysql_password',
-  database: 'your_database_name'
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: 'employee_db'
 });
 
 // Connect to the database
@@ -119,8 +119,8 @@ function addDepartment() {
   });
 }
 
-// Similarly, implement functions to add roles, employees, and update employee roles
+// implement functions to add roles, employees, and update employee roles
 
 // Handle adding a role, adding an employee, updating an employee role
 
-// Finally, call the startApp function to begin the application
+// call the startApp function to begin the application
