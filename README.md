@@ -26,6 +26,9 @@ To use this applicaiton (after following installation instructions above), follo
 3. Enter the command `npm start` to run the program
 4. Answer questions in the prompt based on what you would like to do
 
+Alternatively, see a walkthrough below: <br>
+<a href="" target="_blank" rel="noopener noreferrer">Walkthrough Video</a>
+
 ## Credits
 N/A
 
