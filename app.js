@@ -186,4 +186,4 @@ function updateEmployeeRole() {
 
 // Handle adding a role, adding an employee, updating an employee role
 
-startApp();
+
