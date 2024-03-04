@@ -27,7 +27,7 @@ To use this applicaiton (after following installation instructions above), follo
 4. Answer questions in the prompt based on what you would like to do
 
 Alternatively, see a walkthrough below: <br>
-<a href="" target="_blank" rel="noopener noreferrer">Walkthrough Video</a>
+<a href="https://drive.google.com/file/d/1-_mvTfguV2DZ-_EU6XsCUqBXkf5JUHGr/view" target="_blank" rel="noopener noreferrer">Walkthrough Video</a>
 
 ## Credits
 N/A
